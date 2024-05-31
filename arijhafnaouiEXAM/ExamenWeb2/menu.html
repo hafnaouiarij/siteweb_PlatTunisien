@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Régal Tunisien</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav a {
+            display: inline-block;
+            background-color: #ff0000;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a:hover {
+            background-color: #cc0000;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .menu-item {
+            flex: 0 0 calc(30% - 20px);
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .actions input[type="number"] {
+            width: 50px;
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        .actions button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            cursor: pointer;
+        }
+
+        .actions button:hover {
+            background-color: #45a049;
+        }
+
+        .add-to-cart {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .add-to-cart:hover {
+            background-color: #45a049;
+        }
+
+        .line {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        
+        /* Pour afficher le logo dans un cercle */
+        .rounded-circle-logo {
+            border-radius: 50%;
+            overflow: hidden;
+            width: 150px; /* Taille du cercle */
+            height: 150px; /* Taille du cercle */
+            margin: auto;
+        }
+        
+        .rounded-circle-logo img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+    </style>
+   
+</head>
+<body>
+    
+    <div class="main-container">
+        <header>
+            <h1>Le Régal Tunisien</h1>
+            <!-- Logo dans un cercle -->
+            <div class="rounded-circle-logo">
+                <img src="logo.jpeg" alt="Logo">
+            </div>
+            <br>
+            <nav>
+                <a href="commandes.php" class="commandes-button">Mes commandes</a>
+            </nav>
+            <br>
+            <div class="line"></div>
+        </header>
+        <form action="cart.php" method="POST">
+            <section class="menu">
+                <div class="menu-item">
+                    <div class="card">
+                        <h2>Plat 1</h2>
+                        <img src="couscous.jpg" alt="Couscous à l'agneau et aux carottes">
+                        <p>Couscous à l'agneau et aux carottes</p>
+                        <p><b>Prix : </b>20 DT</p>
+                        <div class="actions">
+                            <input type="hidden" name="n1" value="Couscous à l'agneau">
+                            <input type="hidden" name="p1" value="20">
+                            <p><b>Quantité : </b><input type="number" min="0" value="0" class="quantity" name="q1"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="card">
+                        <h2>Plat 2</h2>
+                        <img src="couscous-poisson.jpg" alt="Couscous au Dorade">
+                        <p>Couscous au Dorade</p>
+                        <p><b>Prix : </b>20 DT</p>
+                        <div class="actions">
+                            <input type="hidden" name="n2" value="Couscous au Dorade">
+                            <input type="hidden" name="p2" value="20">
+                            <p><b>Quantité : </b><input type="number" min="0" value="0" class="quantity" name="q2"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="card">
+                        <h2>Plat 3</h2>
+                        <img src="spaghettis.jpg" alt="Spaghettis aux fruits de mer">
+                        <p>Spaghettis aux fruits de mer</p>
+                        <p><b>Prix : </b>25 DT</p>
+                        <div class="actions">
+                            <input type="hidden" name="n3" value="Spaghettis aux fruits de mer">
+                            <input type="hidden" name="p3" value="25">
+                            <p><b>Quantité : </b><input type="number" min="0" value="0" class="quantity" name="q3"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+            </section>
+            <button type="submit" class="add-to-cart">Ajouter au panier</button>
+        </form>
+    </div>
+    
+</body>
+
+</html>
